@@ -7,8 +7,10 @@ namespace WebCrawler.Services;
 public class HTMLParserService : IHTMLParserService
 {
     private static readonly List<string> RequiredColumnNames = ["IP Address", "Port", "Country", "Protocol"];
-    private static readonly string headerXPath = "//table[contains(@class, 'table table-hover')]/thead/tr";
-    private static readonly string rowsXPath = "//table[contains(@class, 'table table-hover')]/tbody/tr";
+    private static readonly string headerXPath = Environment.GetEnvironmentVariable("HEADER_XPATH") ??
+        throw new Exception("HEADER_XPATH must be set in enviroment variables");
+    private static readonly string rowsXPath = Environment.GetEnvironmentVariable("ROWS_XPATH") ??
+        throw new Exception("ROWS_XPATH must be set in enviroment variables");
 
     public List<ProxyInfo> Parse(HtmlDocument doc)
     {

@@ -4,7 +4,8 @@ namespace WebCrawler.Services;
 
 public class HTMLSnapshotService : IHTMLSnapshotService
 {
-    private readonly string snapshotDir = Path.Combine("output", "snapshots");
+    private readonly string snapshotDir = Environment.GetEnvironmentVariable("SNAPSHOT_FOLDER_PATH") ??
+        throw new Exception("SNAPSHOT_FOLDER_PATH must be set in enviroment variables");
 
     public HTMLSnapshotService()
     {

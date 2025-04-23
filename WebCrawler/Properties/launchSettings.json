@@ -5,8 +5,11 @@
       "environmentVariables": {
         "MAX_THREADS": "3",
         "BASE_URL": "https://proxyservers.pro/proxy/list/order/updated/order_dir/desc/page/",
+        "HEADER_XPATH": "//table[contains(@class, 'table table-hover')]/thead/tr",
         "ROWS_XPATH": "//table[contains(@class, 'table table-hover')]/tbody/tr",
-        "PAGINATION_XPATH": "//ul[contains(@class, 'pagination')]//a"
+        "PAGINATION_XPATH": "//ul[contains(@class, 'pagination')]//a",
+        "JSON_FOLDER_PATH": ".\\output\\jsons",
+        "SNAPSHOT_FOLDER_PATH": ".\\output\\snapshots"
       }
     }
   }

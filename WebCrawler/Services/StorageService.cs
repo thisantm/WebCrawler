@@ -6,7 +6,8 @@ namespace WebCrawler.Services;
 
 public class StorageService : IStorageService
 {
-    private readonly string outputDir = Path.Combine("output", "results");
+    private readonly string outputDir = Environment.GetEnvironmentVariable("JSON_FOLDER_PATH") ??
+        throw new Exception("JSON_FOLDER_PATH must be set in enviroment variables");
     private static readonly JsonSerializerOptions jsonOptions = new() { WriteIndented = true };
 
     public StorageService()
