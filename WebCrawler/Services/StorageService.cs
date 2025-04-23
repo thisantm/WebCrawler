@@ -1,9 +1,10 @@
 ﻿using System.Text.Json;
+using WebCrawler.Interfaces;
 using WebCrawler.Models;
 
 namespace WebCrawler.Services;
 
-public class StorageService
+public class StorageService : IStorageService
 {
     private readonly string outputDir = Path.Combine("output", "results");
     private static readonly JsonSerializerOptions jsonOptions = new() { WriteIndented = true };

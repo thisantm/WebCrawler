@@ -1,10 +1,12 @@
-﻿namespace WebCrawler.Services;
+﻿using WebCrawler.Interfaces;
 
-public class HtmlSnapshotService
+namespace WebCrawler.Services;
+
+public class HTMLSnapshotService : IHTMLSnapshotService
 {
     private readonly string snapshotDir = Path.Combine("output", "snapshots");
 
-    public HtmlSnapshotService()
+    public HTMLSnapshotService()
     {
         Directory.CreateDirectory(snapshotDir);
     }

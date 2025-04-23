@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "WebCrawler": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "MAX_THREADS": "3",
+        "BASE_URL": "https://proxyservers.pro/proxy/list/order/updated/order_dir/desc/page/",
+        "ROWS_XPATH": "//table[contains(@class, 'table table-hover')]/tbody/tr",
+        "PAGINATION_XPATH": "//ul[contains(@class, 'pagination')]//a"
+      }
+    }
+  }
+}
