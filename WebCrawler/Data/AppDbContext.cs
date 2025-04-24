@@ -5,11 +5,15 @@ namespace WebCrawler.Data;
 
 public class AppDbContext : DbContext
 {
-    public DbSet<CrawlerExecutionLog> ExecutionLogs { get; set; } = null!;
+    public DbSet<CrawlerExecutionLog> CrawlerExecutionLogs { get; set; } = null!;
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
-        //options.UseSqlite("Data Source=crawler.db");
+        if (!options.IsConfigured)
+        {
+            options.UseNpgsql(Environment.GetEnvironmentVariable("CONNECTION_STRING_CRAWLER_DB") ??
+                throw new Exception("CONNECTION_STRING_CRAWLER_DB must be set in enviroment variables"));
+        }
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

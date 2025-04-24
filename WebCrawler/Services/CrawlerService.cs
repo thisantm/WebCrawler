@@ -78,7 +78,7 @@ public class CrawlerService : ICrawlerService
 
                     var rows = doc.DocumentNode.SelectNodes(rowsXPath);
 
-                    if ((lastPage == null && (rows == null || rows.Count == 0)))
+                    if (lastPage == null && (rows == null || rows.Count == 0))
                     {
                         hasMorePages = false;
                         return;
@@ -114,7 +114,7 @@ public class CrawlerService : ICrawlerService
         Console.WriteLine($"Arquivo JSON salvo em: {execution.JsonFilePath}");
         Console.WriteLine($"Tempo total de execução: {execution.EndTime - execution.StartTime}");
 
-        // await _storageService.SaveExecutionLogAsync(execution);
+        await _storageService.SaveExecutionLogAsync(execution);
     }
 
     private static async Task<string> GetHtmlWithPlaywrightAsync(string url)

@@ -8,8 +8,9 @@
         "HEADER_XPATH": "//table[contains(@class, 'table table-hover')]/thead/tr",
         "ROWS_XPATH": "//table[contains(@class, 'table table-hover')]/tbody/tr",
         "PAGINATION_XPATH": "//ul[contains(@class, 'pagination')]//a",
-        "JSON_FOLDER_PATH": ".\\output\\jsons",
-        "SNAPSHOT_FOLDER_PATH": ".\\output\\snapshots"
+        "JSON_FOLDER_PATH": "output/jsons",
+        "SNAPSHOT_FOLDER_PATH": "output/snapshots",
+        "CONNECTION_STRING_CRAWLER_DB": ""
       }
     }
   }
